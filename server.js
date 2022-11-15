@@ -3,13 +3,16 @@
 ///////////////////////////////////
 require("dotenv").config()
 const express = require('express')
-const app = express()
 const morgan = require("morgan")
+const budget = require("./models/budget")
 
+const app = express()
 ///////////////////////////////////
 // MIDDLEWARE
 ///////////////////////////////////
+app.use(express.urlencoded({extended: true}))
 app.use(morgan("dev"))
+app.use("/static", express.static("public"))
 
 ///////////////////////////////////
 // ROUTES 
@@ -21,7 +24,7 @@ app.get("/", (req, res) => {
 })
 
 // INDEX ROUTE - GET 
-app.get("", (req, res) => {
+app.get("/budgets", (req, res) => {
     res.render(
         "index.ejs",
         {
@@ -31,7 +34,7 @@ app.get("", (req, res) => {
 })
 
 // NEW ROUTE - GET 
-app.get("", (req, res) => {
+app.get("budgets/new", (req, res) => {
     res.render(
         "new.ejs",
         {
@@ -41,16 +44,16 @@ app.get("", (req, res) => {
 })
 
 // CREATE ROUTE - POST
-app.post("", (req, res) => {
+app.post("/budgets", (req, res) => {
 
 })
 
 // SHOW ROUTE - GET
-app.get("", (req, res) => {
+app.get("/budgets/:index", (req, res) => {
     res.render(
         "show.ejs",
         {
-            
+
         }
     )
 })
