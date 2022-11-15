@@ -15,6 +15,46 @@ app.use(morgan("dev"))
 // ROUTES 
 ///////////////////////////////////
 
+// HOME ROUTE - GET
+app.get("/", (req, res) => {
+    res.send("WELCOME!")
+})
+
+// INDEX ROUTE - GET 
+app.get("", (req, res) => {
+    res.render(
+        "index.ejs",
+        {
+
+        }
+    )
+})
+
+// NEW ROUTE - GET 
+app.get("", (req, res) => {
+    res.render(
+        "new.ejs",
+        {
+
+        }
+    )
+})
+
+// CREATE ROUTE - POST
+app.post("", (req, res) => {
+
+})
+
+// SHOW ROUTE - GET
+app.get("", (req, res) => {
+    res.render(
+        "show.ejs",
+        {
+            
+        }
+    )
+})
+
 ///////////////////////////////////
 // SERVER LISTENER
 ///////////////////////////////////
