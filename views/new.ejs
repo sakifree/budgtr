@@ -2,6 +2,16 @@
 <html lang="en">
     <%- include("./partials/head.ejs") %>
 <body>
-    
+    <div class="container">
+        <h1>Add A New Item</h1>
+        <form action="/budgets" method="POST">
+            Date: <input type="text" name="date" placeholder="Date"> <br>
+            Name: <input type="text" name="name" placeholder="Name"> <br>
+            Amount: <input type="text" name="amount" placeholder="Amount"> <br>
+            From: <input type="text" name="from" placeholder="From"> <br>
+            Tags: <input type="text" name="tags" placeholder="Tags"> <br>
+            <input type="submit" value="Create Item">
+        </form>
+    </div>
 </body>
 </html>

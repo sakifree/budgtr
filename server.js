@@ -25,39 +25,28 @@ app.get("/", (req, res) => {
 
 // INDEX ROUTE - GET 
 app.get("/budgets", (req, res) => {
-    res.render(
-        "index.ejs",
-        {
+    res.render("index.ejs", {
             budget: budget
-        }
-    )
+        })
 })
 
 // NEW ROUTE - GET 
 app.get("budgets/new", (req, res) => {
-    res.render(
-        "new.ejs",
-        {
-
-        }
-    )
+    res.render("new.ejs")
 })
 
 // CREATE ROUTE - POST
 app.post("/budgets", (req, res) => {
-
+    budget.push(req.body)
+    res.redirect("/budgets")
 })
 
 // SHOW ROUTE - GET
 app.get("/budgets/:id", (req, res) => {
-    res.render(
-        "show.ejs",
-        {
+    res.render("show.ejs", {
             item: budget[req.params.id],
             index: req.params.id
-
-        }
-    )
+        })
 })
 
 /********************************* */
