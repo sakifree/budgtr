@@ -6,15 +6,15 @@
         <h1>Budgtr</h1>
 
         <% for(let i=0; i < budget.length; i++) { %>
-            <% console.log(budget[i])%>
             <table>
                 <tr>
                     <td><%= budget[i].date%></td>
-                    <td><%= budget[i].name%></td>
+                    <td><a href="/budgets/<%=i%>"><%= budget[i].name%></a></td>
                     <td><%= budget[i].amount%></td>
                 </tr>
             </table>
         <% } %>
+        <a href="/budgets/new"><button>New Item</button></a>
     </div>
 </body>
 </html>

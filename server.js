@@ -49,10 +49,12 @@ app.post("/budgets", (req, res) => {
 })
 
 // SHOW ROUTE - GET
-app.get("/budgets/:index", (req, res) => {
+app.get("/budgets/:id", (req, res) => {
     res.render(
         "show.ejs",
         {
+            item: budget[req.params.id],
+            index: req.params.id
 
         }
     )
