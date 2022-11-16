@@ -1,4 +1,4 @@
-module.exports = [
+let budget = [
     {
       date: "April 1",
       name: "Income",
@@ -70,3 +70,5 @@ module.exports = [
       tags: ["pets"]
     },
   ];
+
+  module.exports = budget

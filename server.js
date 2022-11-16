@@ -1,22 +1,22 @@
-///////////////////////////////////
+/********************************* */
 // SETUP - DECLARE DEPENDENCIES - CREATE APP OBJECT
-///////////////////////////////////
+/********************************* */
 require("dotenv").config()
 const express = require('express')
 const morgan = require("morgan")
 const budget = require("./models/budget")
 
 const app = express()
-///////////////////////////////////
+/********************************* */
 // MIDDLEWARE
-///////////////////////////////////
+/********************************* */
 app.use(express.urlencoded({extended: true}))
 app.use(morgan("dev"))
 app.use("/static", express.static("public"))
 
-///////////////////////////////////
+/********************************* */
 // ROUTES 
-///////////////////////////////////
+/********************************* */
 
 // HOME ROUTE - GET
 app.get("/", (req, res) => {
@@ -28,7 +28,7 @@ app.get("/budgets", (req, res) => {
     res.render(
         "index.ejs",
         {
-
+            budget: budget
         }
     )
 })
@@ -58,10 +58,10 @@ app.get("/budgets/:index", (req, res) => {
     )
 })
 
-///////////////////////////////////
+/********************************* */
 // SERVER LISTENER
-///////////////////////////////////
-const PORT = process.env.PORT || 3000
+/********************************* */
+const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
-    console.log(`Listening on planet ${PORT}`)
+    console.log(`Can you hear the love on port: ${PORT}`)
 })

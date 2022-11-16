@@ -3,7 +3,18 @@
     <%- include("./partials/head.ejs") %>
 <body>
     <div class="container">
-        <h1>Budgtr ALL</h1>
+        <h1>Budgtr</h1>
+
+        <% for(let i=0; i < budget.length; i++) { %>
+            <% console.log(budget[i])%>
+            <table>
+                <tr>
+                    <td><%= budget[i].date%></td>
+                    <td><%= budget[i].name%></td>
+                    <td><%= budget[i].amount%></td>
+                </tr>
+            </table>
+        <% } %>
     </div>
 </body>
 </html>
