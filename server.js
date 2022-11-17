@@ -5,6 +5,7 @@ require("dotenv").config()
 const express = require('express')
 const morgan = require("morgan")
 const budget = require("./models/budget")
+let bankAccount = 0
 
 const app = express()
 /********************************* */
@@ -26,7 +27,10 @@ app.get("/", (req, res) => {
 // INDEX ROUTE - GET 
 app.get("/budgets", (req, res) => {
     res.render("index.ejs", {
-            budget: budget
+            budget: budget,
+            bankAccount: budget.reduce((acc, budgetItem) => {
+                return acc + Number(budgetItem.amount)
+            },0)
         })
 })
 
@@ -45,7 +49,7 @@ app.post("/budgets", (req, res) => {
 app.get("/budgets/:id", (req, res) => {
     res.render("show.ejs", {
             item: budget[req.params.id],
-            index: req.params.id,
+            index: req.params.id
         })
 })
 

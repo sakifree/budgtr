@@ -4,6 +4,22 @@
 <body>
     <div class="container">
         <h1>Budgtr</h1>
+        <style></style>
+        <h3 id="account">Bank Account: <%= bankAccount %></h3>
+        <% if(bankAccount < 0) { %>
+                <style>
+                    #account {
+                        background-color: #D62929
+;
+                    }
+                </style>
+        <% } else if (bankAccount > 1000) { %>
+            <style>
+                #account {
+                    background-color: lightblue;
+                }
+            </style>
+        <% } %>
         <a href="/budgets/new"><button>New Item</button></a>
         <% for(let i=0; i < budget.length; i++) { %>
             <table>
@@ -14,7 +30,6 @@
                 </tr>
             </table>
         <% } %>
-        
     </div>
 </body>
 </html>
