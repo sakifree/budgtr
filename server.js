@@ -31,7 +31,7 @@ app.get("/budgets", (req, res) => {
 })
 
 // NEW ROUTE - GET 
-app.get("budgets/new", (req, res) => {
+app.get("/budgets/new", (req, res) => {
     res.render("new.ejs")
 })
 
@@ -45,7 +45,7 @@ app.post("/budgets", (req, res) => {
 app.get("/budgets/:id", (req, res) => {
     res.render("show.ejs", {
             item: budget[req.params.id],
-            index: req.params.id
+            index: req.params.id,
         })
 })
 
